@@ -7,7 +7,7 @@
             </el-aside>
             <el-main>
                 树状图
-                <div id="echart" style="width:400px;height:400px;"></div>
+                <div id="echart" style="width:800px;height:400px;"></div>
             </el-main>
         </el-container>
     </div>
@@ -18,6 +18,107 @@ export default {
     name: 'Week3',
     data () {
     return {
+        tree :{
+            "name":"c64945c8-49c4-490c-a05d-9418e4d0a792",
+            "children":[
+            {
+                "name":"/projectA/test",
+                "value":"Http-Nginx",
+                "children":[
+                {
+                    "name":"/projectA/test",
+                    "value":"Http-Nginx",
+                    "children":[
+                    {
+                        "name":"/projectA/test",
+                        "value":"Http-Nginx",
+                        "children":[
+                        {
+                            "name":"/projectA/test",
+                            "value":"Http-Nginx",
+                            "children":[
+                            {
+                                "name":"/projectA/{name}",
+                                "value":"Http-SpringMVC",
+                                "children":[
+                                {
+                                    "name":"/projectB/test",
+                                    "value":"Http-SpringRestTemplate",
+                                    "children":[
+                                    {
+                                        "name":"/projectB/{value}",
+                                        "value":"Http-SpringMVC",
+                                        "children":[
+                                            {
+                                                "name":"test.skywalking.springcloud.test.projectb.dao.DatabaseOperateDao.saveUser(java.lang.String)",
+                                                "value":"Unknown-Unknown",
+                                                "children":[
+                                                {
+                                                    "name":"H2/JDBI/PreparedStatement/execute",
+                                                    "value":"Database-h2-jdbc-driver"
+                                                }]
+                                            },
+                                            {
+                                                "name":"selectUser",
+                                                "value":"Unknown-Unknown",
+                                                "children":[
+                                                {
+                                                    "name":"H2/JDBI/PreparedStatement/execute",
+                                                    "value":"Database-h2-jdbc-driver"
+                                                }]
+                                            }
+                                        ]
+                                    }]
+                                },
+                                {
+                                    "name":"Balancer/projectC/{name}",
+                                    "value":"Http-Feign",
+                                    "children":[
+                                    {
+                                        "name":"/projectC/test",
+                                        "value":"Http-Feign",
+                                        "children":
+                                        {
+                                            "name":"/projectC/{value}",
+                                            "value":"Http-SpringMVC",
+                                            "children":[
+                                                {
+                                                "name":"/",
+                                                "value":"Http-HttpClient"
+                                                },
+                                                {
+                                                "name":"Kafka/test-trace-topic/Producer",
+                                                "value":"MQ-kafka-producer"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name":"/projectC/test",
+                                        "value":"Http-Feign",
+                                        "children":[
+                                        {
+                                            "name":"/projectC/{value}",
+                                            "value":"Http-SpringMVC",
+                                            "children":[
+                                                {
+                                                "name":"/",
+                                                "value":"Http-HttpClient"
+                                                },
+                                                {
+                                                "name":"Kafka/test-trace-topic/Producer",
+                                                "value":"MQ-kafka-producer"
+                                                }
+                                            ]
+                                        }]
+                                    }]
+                                }]
+                            }]
+                        }]
+                    }]
+                }]
+            }]
+        }
     }
     },
     mounted (){
@@ -26,21 +127,51 @@ export default {
     methods: {
     echartsInit () {
 		this.$echarts.init(document.getElementById('echart')).setOption({
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [{
-                data: [120, 200, 150, 80, 70, 110, 130],
-                type: 'bar',
-                showBackground: true,
-                backgroundStyle: {
-                    color: 'rgba(220, 220, 220, 0.8)'
-                }
-            }]
+                    tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove'
+        },
+        series: [
+            {
+                type: 'tree',
+
+                data: [this.tree],
+
+                top: '1%',
+                left: '7%',
+                bottom: '1%',
+                right: '20%',
+
+                symbolSize: 7,
+
+                label: {
+                    position: 'left',
+                    verticalAlign: 'middle',
+                    align: 'right',
+                    fontSize: 9
+                },
+
+                roam: true,
+
+                initialTreeDepth: -1,
+
+                leaves: {
+                    label: {
+                        position: 'right',
+                        verticalAlign: 'middle',
+                        align: 'left'
+                    }
+                },
+
+                emphasis: {
+                    focus: 'descendant'
+                },
+
+                expandAndCollapse: true,
+                animationDuration: 550,
+                animationDurationUpdate: 750
+            }
+        ]
 			})
 		}
 
