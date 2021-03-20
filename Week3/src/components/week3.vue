@@ -1,9 +1,42 @@
 <template>
   <div class="week3">
     <el-container>
-      <el-aside width="200px">
-        <div>边栏</div>
+      <el-aside width="250px">
+        <div>
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :page-sizes="[4, 5, 6, 7, 8]"
+            :current-page="currentPage"
+            :page-size="pagesize"
+            :total="4"
+            layout="total, sizes, prev, pager, next, jumper"
+          >
+          </el-pagination>
+        </div>
+        <div>
+          <el-table style="width: 100%" stripe :data="leftlist">
+            <el-table-column>
+              <el-col>
+                <el-row>
+                  <div>
+                    {{ leftlist[0].path }}
+                  </div>
+                </el-row>
+                <el-row>
+                  <div>
+                    <el-tag effect="plain">
+                      {{ leftlist[0].duration }}
+                    </el-tag>
+                    <span>{{ leftlist[0].startpoint }} </span>
+                  </div>
+                </el-row>
+              </el-col>
+            </el-table-column>
+          </el-table>
+        </div>
       </el-aside>
+
       <el-container>
         <el-header>
           <div>
@@ -13,8 +46,8 @@
               justify="space-between"
               align="middle"
             >
-              <div class="title">/projectC/{value}</div>
-              <el-button type="primary">主要按钮</el-button>
+              <div class="title">{{ leftlist[0].path }}</div>
+              <el-button type="primary" size="small">查看日志</el-button>
             </el-row>
 
             <el-row
@@ -23,7 +56,9 @@
               justify="space-between"
               align="middle"
             >
-              <div>number</div>
+              <el-tag effect="plain" size="mini">
+                {{ leftlist[0].name }}
+              </el-tag>
             </el-row>
 
             <el-row
@@ -32,8 +67,21 @@
               justify="space-between"
               align="middle"
             >
-              <div>起始点： 持续时间： 跨度：</div>
-              <el-button type="primary" size="small">主要按钮</el-button>
+              <el-col>
+                <el-tag effect="dark" type="info" size="mini"> 起始点 </el-tag>
+                <span>{{ leftlist[0].startpoint }} </span>
+                <el-tag effect="dark" type="info" size="mini">
+                  持续时间
+                </el-tag>
+                <span>{{ leftlist[0].duration }} </span>
+                <el-tag effect="dark" type="info" size="mini"> 跨度 </el-tag>
+                <span>{{ leftlist[0].span }} </span>
+              </el-col>
+              <el-col
+                ><el-button type="mini">列表</el-button>
+                <el-button type="mini">树结构</el-button>
+                <el-button type="mini">表格</el-button></el-col
+              >
             </el-row>
           </div></el-header
         >
@@ -52,8 +100,14 @@ export default {
   name: "Week3",
   data() {
     return {
+      currentPage: 1,
+      pagesize: 2,
       tree: {
+        path: "/projectC/{value}",
         name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+        startpoint: "2021-03-19 22:17:59",
+        duration: "64737 ms",
+        span: "20",
         children: [
           {
             name: "/projectA/test",
@@ -168,12 +222,92 @@ export default {
           },
         ],
       },
+      leftlist: [
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64737 ms",
+          span: "20",
+        },
+      ],
     };
   },
   mounted() {
     this.echartsInit();
   },
   methods: {
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+      this.pagesize = val;
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+      this.currentPage = currentPage;
+    },
     echartsInit() {
       this.$echarts.init(document.getElementById("echart")).setOption({
         tooltip: {
