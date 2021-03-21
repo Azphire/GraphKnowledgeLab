@@ -411,6 +411,11 @@ export default {
 
             data: [this.tree],
 
+            symbol: "emptyCircle",
+            // symbol: 'image://'+ require('../assets/node.png'),
+
+            symbolSize: "10",
+
             top: "1%",
             left: "7%",
             bottom: "1%",
@@ -447,7 +452,7 @@ export default {
           },
         ],
       });
-    },
+    }
   },
 };
 </script>
