@@ -15,23 +15,33 @@
           </el-pagination>
         </div>
         <div>
-          <el-table style="width: 100%" stripe :data="leftlist">
+          <el-table
+            style="width: 100%"
+            stripe
+            :data="leftlist"
+            highlight-current-row
+            :row-class-name="rowClassName"
+            @row-click="whileClick"
+          >
             <el-table-column>
-              <el-col>
-                <el-row>
-                  <div>
-                    {{ leftlist[0].path }}
-                  </div>
-                </el-row>
-                <el-row>
-                  <div>
-                    <el-tag effect="plain">
-                      {{ leftlist[0].duration }}
-                    </el-tag>
-                    <span>{{ leftlist[0].startpoint }} </span>
-                  </div>
-                </el-row>
-              </el-col>
+              <template slot-scope="scope">
+                <span class="word-position"></span>
+                <el-col>
+                  <el-row>
+                    <div>
+                      {{ leftlist[scope.$index].path }}
+                    </div>
+                  </el-row>
+                  <el-row>
+                    <div>
+                      <el-tag effect="plain">
+                        {{ leftlist[scope.$index].duration }}
+                      </el-tag>
+                      <span>{{ leftlist[scope.$index].startpoint }} </span>
+                    </div>
+                  </el-row>
+                </el-col>
+              </template>
             </el-table-column>
           </el-table>
         </div>
@@ -46,7 +56,7 @@
               justify="space-between"
               align="middle"
             >
-              <div class="title">{{ leftlist[0].path }}</div>
+              <div class="title">{{ leftlist[rownumber].path }}</div>
               <el-button type="primary" size="small">查看日志</el-button>
             </el-row>
 
@@ -57,7 +67,7 @@
               align="middle"
             >
               <el-tag effect="plain" size="mini">
-                {{ leftlist[0].name }}
+                {{ leftlist[rownumber].name }}
               </el-tag>
             </el-row>
 
@@ -69,13 +79,13 @@
             >
               <el-col>
                 <el-tag effect="dark" type="info" size="mini"> 起始点 </el-tag>
-                <span>{{ leftlist[0].startpoint }} </span>
+                <span>{{ leftlist[rownumber].startpoint }} </span>
                 <el-tag effect="dark" type="info" size="mini">
                   持续时间
                 </el-tag>
-                <span>{{ leftlist[0].duration }} </span>
+                <span>{{ leftlist[rownumber].duration }} </span>
                 <el-tag effect="dark" type="info" size="mini"> 跨度 </el-tag>
-                <span>{{ leftlist[0].span }} </span>
+                <span>{{ leftlist[rownumber].span }} </span>
               </el-col>
               <el-col
                 ><el-button type="mini">列表</el-button>
@@ -100,6 +110,7 @@ export default {
   name: "Week3",
   data() {
     return {
+      rownumber: 0,
       currentPage: 1,
       pagesize: 2,
       tree: {
@@ -225,73 +236,143 @@ export default {
       leftlist: [
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
+          name: "a64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-11 22:17:59",
+          duration: "64730 ms",
           span: "20",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "b64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-12 22:17:59",
+          duration: "64731 ms",
+          span: "21",
         },
         {
           path: "/projectC/{value}",
           name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
+          startpoint: "2021-03-13 22:17:59",
+          duration: "64732 ms",
+          span: "22",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "d64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-14 22:17:59",
+          duration: "64733 ms",
+          span: "23",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "e64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-15 22:17:59",
+          duration: "64734 ms",
+          span: "24",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "f64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-16 22:17:59",
+          duration: "64735 ms",
+          span: "25",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "g64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-17 22:17:59",
+          duration: "64736 ms",
+          span: "26",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "h64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-18 22:17:59",
           duration: "64737 ms",
+          span: "27",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "i64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64738 ms",
+          span: "28",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "j64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64739 ms",
+          span: "29",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "a64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-11 22:17:59",
+          duration: "64730 ms",
           span: "20",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "b64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-12 22:17:59",
+          duration: "64731 ms",
+          span: "21",
         },
         {
           path: "/projectC/{value}",
           name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          startpoint: "2021-03-13 22:17:59",
+          duration: "64732 ms",
+          span: "22",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "d64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-14 22:17:59",
+          duration: "64733 ms",
+          span: "23",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "e64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-15 22:17:59",
+          duration: "64734 ms",
+          span: "24",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "f64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-16 22:17:59",
+          duration: "64735 ms",
+          span: "25",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
-          duration: "64737 ms",
-          span: "20",
+          name: "g64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-17 22:17:59",
+          duration: "64736 ms",
+          span: "26",
         },
         {
           path: "/projectC/{value}",
-          name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
-          startpoint: "2021-03-19 22:17:59",
+          name: "h64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-18 22:17:59",
           duration: "64737 ms",
-          span: "20",
+          span: "27",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "i64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64738 ms",
+          span: "28",
+        },
+        {
+          path: "/projectC/{value}",
+          name: "j64945c8-49c4-490c-a05d-9418e4d0a792",
+          startpoint: "2021-03-19 22:17:59",
+          duration: "64739 ms",
+          span: "29",
         },
       ],
     };
@@ -307,6 +388,16 @@ export default {
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
       this.currentPage = currentPage;
+    },
+    rowClassName({ row, rowIndex }) {
+      row.index = rowIndex;
+    },
+    whileClick(row) {
+      this.rownumber = row.index;
+      console.log("number");
+      console.log(row);
+      console.log(row.index);
+      console.log(this.rownumber);
     },
     echartsInit() {
       this.$echarts.init(document.getElementById("echart")).setOption({
