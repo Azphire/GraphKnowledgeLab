@@ -112,6 +112,7 @@ export default {
   data() {
     return {
       totalNum: 21,
+
       rownumber: 0,
       currentPage: 1,
       pagesize: 2,
@@ -409,6 +410,9 @@ export default {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
       this.pagesize = val;
+
+      this.currentPage = 1;
+
       this.currentPage = 1;
     },
     handleCurrentChange(val) {
@@ -471,6 +475,7 @@ export default {
             label: {
               width: "90",
               height: "50,",
+
               overflow: "truncate",
               formatter: function (params) {
                 var arr = [
@@ -481,6 +486,7 @@ export default {
                 // console.log(params)
                 return arr.join("\n");
               },
+
               // 这里是文本块的样式设置：
               // position: function (params) {
               //   var arr = [-120, -8]
@@ -489,6 +495,7 @@ export default {
               //     console.log(params.data.name)
               //   };
               //   return arr;
+
               // },
               position: [-100, -8],
               // position: "left",
@@ -496,6 +503,7 @@ export default {
               color: "#333",
               fontSize: 5,
               fontFamily: "Arial",
+
               borderWidth: 3,
               // backgroundColor: '#ffffff',
               // padding: [3, 10, 10, 5],
@@ -546,6 +554,49 @@ export default {
 
             leaves: {
               label: {
+                width: "90",
+                height: "50,",
+                formatter: function (params) {
+                  var arr = [
+                    "{a|" + params.data.path + "}",
+                    "{b|        }{c|                   }",
+                    "{x|" + params.data.name + "}",
+                  ];
+                  // console.log(params)
+                  return arr.join("\n");
+                },
+                // 这里是文本块的样式设置：
+                color: "#333",
+                fontSize: 5,
+                fontFamily: "Arial",
+                borderWidth: 3,
+                // backgroundColor: '#984455',
+                padding: [3, 10, 10, 5],
+                lineHeight: 20,
+                position: [20, -12],
+
+                // rich 里是文本片段的样式设置：
+                rich: {
+                  a: {
+                    color: "black",
+                    fontSize: 12,
+                    lineHeight: 5,
+                  },
+                  b: {
+                    backgroundColor: "#2F96E0",
+                    height: 3,
+                  },
+                  c: {
+                    backgroundColor: "#D2D2D2",
+                    height: 3,
+                  },
+                  x: {
+                    fontSize: 12,
+                    fontFamily: "Microsoft YaHei",
+                    color: "#D2D2D2",
+                    lineHeight: 5,
+                  },
+                },
                 width: "90",
                 height: "50,",
                 formatter: function (params) {
