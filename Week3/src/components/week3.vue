@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import tableData from '../data/data.json'
+
 export default {
   name: "Week3",
   data() {
