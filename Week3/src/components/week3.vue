@@ -20,11 +20,10 @@
         <div>
           <el-table
             stripe
-            :data="tableData.slice((currentPage-1)*pagesize,currentPage*pagesize)"
+            :data="leftlist.slice((currentPage-1)*pagesize,currentPage*pagesize)"
             highlight-current-row
             :row-class-name="rowClassName"
             @row-click="whileClick"
-    
           >
 
           
@@ -113,7 +112,7 @@ export default {
   name: "Week3",
   data() {
     return {
-      tableData:tableData.leftlist,
+      
       totalNum:21,
 
       rownumber: 0,
