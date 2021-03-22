@@ -1,46 +1,47 @@
 <template>
   <div class="week3">
     <el-container>
-      <el-aside width="250px">
+      <el-aside width="300px">
         <div>
           <el-pagination
+            style="width: 100%"
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :page-sizes="[4, 5, 6, 7, 8]"
+            :pager-count="2"
+            :page-sizes="[4, 5, 6, 14, 15]"
             :current-page="currentPage"
             :page-size="pagesize"
-            :total="4"
+            :total="totalNum"
             layout="total, sizes, prev, pager, next, jumper"
           >
           </el-pagination>
         </div>
         <div>
           <el-table
-            style="width: 100%"
             stripe
-            :data="leftlist"
+            :data="
+              leftlist.slice(
+                (currentPage - 1) * pagesize,
+                currentPage * pagesize
+              )
+            "
             highlight-current-row
             :row-class-name="rowClassName"
             @row-click="whileClick"
           >
-            <el-table-column>
+            <el-table-column prop="path">
               <template slot-scope="scope">
-                <span class="word-position"></span>
-                <el-col>
-                  <el-row>
-                    <div>
-                      {{ leftlist[scope.$index].path }}
-                    </div>
-                  </el-row>
-                  <el-row>
-                    <div>
-                      <el-tag effect="plain">
-                        {{ leftlist[scope.$index].duration }}
-                      </el-tag>
-                      <span>{{ leftlist[scope.$index].startpoint }} </span>
-                    </div>
-                  </el-row>
-                </el-col>
+                <el-row>
+                  <div>{{ scope.row.path }}</div>
+                </el-row>
+                <el-row>
+                  <div>
+                    <el-tag effect="plain">
+                      {{ scope.row.duration }}
+                    </el-tag>
+                    <span>{{ scope.row.startpoint }} </span>
+                  </div>
+                </el-row>
               </template>
             </el-table-column>
           </el-table>
@@ -77,7 +78,7 @@
               justify="space-between"
               align="middle"
             >
-              <el-col>
+              <div>
                 <el-tag effect="dark" type="info" size="mini"> 起始点 </el-tag>
                 <span>{{ leftlist[rownumber].startpoint }} </span>
                 <el-tag effect="dark" type="info" size="mini">
@@ -86,12 +87,12 @@
                 <span>{{ leftlist[rownumber].duration }} </span>
                 <el-tag effect="dark" type="info" size="mini"> 跨度 </el-tag>
                 <span>{{ leftlist[rownumber].span }} </span>
-              </el-col>
-              <el-col
-                ><el-button type="mini">列表</el-button>
+              </div>
+              <div>
+                <el-button type="mini">列表</el-button>
                 <el-button type="mini">树结构</el-button>
-                <el-button type="mini">表格</el-button></el-col
-              >
+                <el-button type="mini">表格</el-button>
+              </div>
             </el-row>
           </div></el-header
         >
@@ -110,6 +111,7 @@ export default {
   name: "Week3",
   data() {
     return {
+      totalNum: 21,
       rownumber: 0,
       currentPage: 1,
       pagesize: 2,
@@ -119,55 +121,68 @@ export default {
         startpoint: "2021-03-19 22:17:59",
         duration: "64737 ms",
         span: "20",
+        type: "single",
         children: [
           {
-            name: "/projectA/test",
-            value: "Http-Nginx",
+            path: "/projectA/test",
+            name: "Http-Nginx",
+            type: "single",
+            position: [-120, 50],
             children: [
               {
-                name: "/projectA/test",
-                value: "Http-Nginx",
+                path: "/projectA/test",
+                name: "Http-Nginx",
+                type: "single",
                 children: [
                   {
-                    name: "/projectA/test",
-                    value: "Http-Nginx",
+                    path: "/projectA/test",
+                    name: "Http-Nginx",
+                    type: "single",
                     children: [
                       {
-                        name: "/projectA/test",
-                        value: "Http-Nginx",
+                        path: "/projectA/test",
+                        name: "Http-Nginx",
+                        type: "single",
                         children: [
                           {
-                            name: "/projectA/{name}",
-                            value: "Http-SpringMVC",
+                            path: "/projectA/{name}",
+                            name: "Http-SpringMVC",
+                            type: "single",
                             children: [
                               {
-                                name: "/projectB/test",
-                                value: "Http-SpringRestTemplate",
+                                path: "/projectB/test",
+                                name: "Http-SpringRestTemplate",
+                                type: "branch",
                                 children: [
                                   {
-                                    name: "/projectB/{value}",
-                                    value: "Http-SpringMVC",
+                                    path: "/projectB/{value}",
+                                    name: "Http-SpringMVC",
+                                    type: "branch",
                                     children: [
                                       {
-                                        name:
+                                        path:
                                           "test.skywalking.springcloud.test.projectb.dao.DatabaseOperateDao.saveUser(java.lang.String)",
-                                        value: "Unknown-Unknown",
+                                        name: "Unknown-Unknown",
+                                        type: "single",
                                         children: [
                                           {
-                                            name:
+                                            path:
                                               "H2/JDBI/PreparedStatement/execute",
-                                            value: "Database-h2-jdbc-driver",
+                                            name: "Database-h2-jdbc-driver",
+                                            type: "leaf",
                                           },
                                         ],
                                       },
                                       {
-                                        name: "selectUser",
-                                        value: "Unknown-Unknown",
+                                        path: "selectUser",
+                                        name: "Unknown-Unknown",
+                                        type: "single",
                                         children: [
                                           {
-                                            name:
+                                            path:
                                               "H2/JDBI/PreparedStatement/execute",
-                                            value: "Database-h2-jdbc-driver",
+                                            name: "Database-h2-jdbc-driver",
+                                            type: "leaf",
                                           },
                                         ],
                                       },
@@ -176,44 +191,53 @@ export default {
                                 ],
                               },
                               {
-                                name: "Balancer/projectC/{name}",
-                                value: "Http-Feign",
+                                path: "Balancer/projectC/{name}",
+                                name: "Http-Feign",
+                                type: "branch",
                                 children: [
                                   {
-                                    name: "/projectC/test",
-                                    value: "Http-Feign",
+                                    path: "/projectC/test",
+                                    name: "Http-Feign",
+                                    type: "branch",
                                     children: {
-                                      name: "/projectC/{value}",
-                                      value: "Http-SpringMVC",
+                                      path: "/projectC/{value}",
+                                      name: "Http-SpringMVC",
+                                      type: "branch",
                                       children: [
                                         {
-                                          name: "/",
-                                          value: "Http-HttpClient",
+                                          path: "/",
+                                          name: "Http-HttpClient",
+                                          type: "leaf",
                                         },
                                         {
-                                          name:
+                                          path:
                                             "Kafka/test-trace-topic/Producer",
-                                          value: "MQ-kafka-producer",
+                                          name: "MQ-kafka-producer",
+                                          type: "leaf",
                                         },
                                       ],
                                     },
                                   },
                                   {
-                                    name: "/projectC/test",
-                                    value: "Http-Feign",
+                                    path: "/projectC/test",
+                                    name: "Http-Feign",
+                                    type: "branch",
                                     children: [
                                       {
-                                        name: "/projectC/{value}",
-                                        value: "Http-SpringMVC",
+                                        path: "/projectC/{value}",
+                                        name: "Http-SpringMVC",
+                                        type: "branch",
                                         children: [
                                           {
-                                            name: "/",
-                                            value: "Http-HttpClient",
+                                            path: "/",
+                                            name: "Http-HttpClient",
+                                            type: "leaf",
                                           },
                                           {
-                                            name:
+                                            path:
                                               "Kafka/test-trace-topic/Producer",
-                                            value: "MQ-kafka-producer",
+                                            name: "MQ-kafka-producer",
+                                            type: "leaf",
                                           },
                                         ],
                                       },
@@ -377,6 +401,7 @@ export default {
       ],
     };
   },
+
   mounted() {
     this.echartsInit();
   },
@@ -384,10 +409,22 @@ export default {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
       this.pagesize = val;
+      this.currentPage = 1;
     },
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
-      this.currentPage = currentPage;
+      this.currentPage = val;
+    },
+    rowClassName({ row, rowIndex }) {
+      row.index = rowIndex;
+    },
+
+    whileClick(row) {
+      this.rownumber = row.index;
+      console.log("number");
+      console.log(row);
+      console.log(row.index);
+      console.log(this.rownumber);
     },
     rowClassName({ row, rowIndex }) {
       row.index = rowIndex;
@@ -416,19 +453,92 @@ export default {
 
             symbolSize: "10",
 
+            itemStyle: {
+              color: "#2F96E0",
+            },
+
             top: "1%",
             left: "7%",
             bottom: "1%",
             right: "20%",
 
-            symbolSize: 7,
-
+            // label: {
+            //   position: "left",
+            //   verticalAlign: "middle",
+            //   align: "right",
+            //   fontSize: 9,
+            // },
             label: {
-              position: "left",
-              verticalAlign: "middle",
-              align: "right",
-              fontSize: 9,
+              width: "90",
+              height: "50,",
+              overflow: "truncate",
+              formatter: function (params) {
+                var arr = [
+                  "{a|" + params.data.path + "}",
+                  "{b|        }{c|                   }",
+                  "{x|" + params.data.name + "}",
+                ];
+                // console.log(params)
+                return arr.join("\n");
+              },
+              // 这里是文本块的样式设置：
+              // position: function (params) {
+              //   var arr = [-120, -8]
+              //   if (params.data.type == "branch") {
+              //     arr = [-120, -40]
+              //     console.log(params.data.name)
+              //   };
+              //   return arr;
+              // },
+              position: [-100, -8],
+              // position: "left",
+              // position: params.data.position,
+              color: "#333",
+              fontSize: 5,
+              fontFamily: "Arial",
+              borderWidth: 3,
+              // backgroundColor: '#ffffff',
+              // padding: [3, 10, 10, 5],
+              lineHeight: 20,
+
+              // rich 里是文本片段的样式设置：
+              rich: {
+                a: {
+                  color: "black",
+                  fontSize: 12,
+                  lineHeight: 5,
+                },
+                b: {
+                  backgroundColor: "#2F96E0",
+                  height: 3,
+                },
+                c: {
+                  backgroundColor: "#D2D2D2",
+                  height: 3,
+                },
+                x: {
+                  fontSize: 12,
+                  fontFamily: "Microsoft YaHei",
+                  color: "#D2D2D2",
+                  lineHeight: 5,
+                },
+              },
             },
+            // labelLayout: {
+            //   verticalAlign: "middle",
+            // },
+            // labelLayout: function (params) {
+            //   var arr = [-120, -8]
+            //   console.log(params)
+            //     // if (params.data.type == "branch") {
+            //     //   arr = [-120, -40]
+            //       // console.log(params.data.name)
+            //     // };
+            //     if (params.dataIndex == 1){
+            //       arr = [-120, -12]
+            //     }
+            //     return arr;
+            // },
 
             roam: true,
 
@@ -436,9 +546,49 @@ export default {
 
             leaves: {
               label: {
-                position: "right",
-                verticalAlign: "middle",
-                align: "left",
+                width: "90",
+                height: "50,",
+                formatter: function (params) {
+                  var arr = [
+                    "{a|" + params.data.path + "}",
+                    "{b|        }{c|                   }",
+                    "{x|" + params.data.name + "}",
+                  ];
+                  // console.log(params)
+                  return arr.join("\n");
+                },
+                // 这里是文本块的样式设置：
+                color: "#333",
+                fontSize: 5,
+                fontFamily: "Arial",
+                borderWidth: 3,
+                // backgroundColor: '#984455',
+                padding: [3, 10, 10, 5],
+                lineHeight: 20,
+                position: [20, -12],
+
+                // rich 里是文本片段的样式设置：
+                rich: {
+                  a: {
+                    color: "black",
+                    fontSize: 12,
+                    lineHeight: 5,
+                  },
+                  b: {
+                    backgroundColor: "#2F96E0",
+                    height: 3,
+                  },
+                  c: {
+                    backgroundColor: "#D2D2D2",
+                    height: 3,
+                  },
+                  x: {
+                    fontSize: 12,
+                    fontFamily: "Microsoft YaHei",
+                    color: "#D2D2D2",
+                    lineHeight: 5,
+                  },
+                },
               },
             },
 
@@ -452,7 +602,7 @@ export default {
           },
         ],
       });
-    }
+    },
   },
 };
 </script>
