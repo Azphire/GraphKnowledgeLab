@@ -1,0 +1,138 @@
+[{
+	"traceId": "e20e4a967bfe1b6f",
+	"spans": [{
+		"traceId": "e20e4a967bfe1b6f",
+		"spanId": "c72a4067931f5f32",
+		"operationName": "get-items",
+		"parentSpan": "e20e4a967bfe1b6f",
+		"spanKind": "server",
+		"startTime": 1615449088916000,
+		"duration": 5799,
+		"attributes": {
+			"status": "200",
+			"message": "Finished successfully"
+		},
+		"links": "",
+		"events": []
+	},{
+		"traceId": "e20e4a967bfe1b6f",
+		"spanId": "e20e4a967bfe1b6f",
+		"operationName": "http://carts//llxeydf4ps8_lpyfh1kd4noii5sry1lq//items",
+		"parentSpan": "",
+		"spanKind": "server",
+		"startTime": 1615449088914000,
+		"duration": 8382,
+		"attributes": {
+			"status": "500",
+			"message": "Internal Server Error"
+		},
+		"links": "",
+		"events": []
+	}],
+	"info": {
+		"total": 2,
+		"error": 1,
+		"warnings": 0
+	}
+},{
+	"traceId": "67be1ac2d7b61ab5",
+	"spans": [{
+		"traceId": "67be1ac2d7b61ab5",
+		"spanId": "67be1ac2d7b61ab5",
+		"operationName": "http://carts//llxeydf4ps8_lpyfh1kd4noii5sry1lq//items",
+		"parentSpan": "",
+		"spanKind": "server",
+		"startTime": 1615449085512000,
+		"duration":  717485,
+		"attributes": {
+			"status": "500",
+			"message": "Internal Server Error"
+		},
+		"links": "",
+		"events": []
+	}],
+	"info": {
+		"total": 1,
+		"error": 1,
+		"warnings": 0
+	}
+},{
+	"traceId": "82c761a4d29a7fe1",
+	"spans": [{
+		"traceId": "82c761a4d29a7fe1",
+		"spanId": "82c761a4d29a7fe1",
+		"operationName": "http://carts//llxeydf4ps8_lpyfh1kd4noii5sry1lq//items",
+		"parentSpan": "",
+		"spanKind": "server",
+		"startTime": 1615449149285000,
+		"duration": 87242,
+		"attributes": {
+			"status": "500",
+			"message": "Internal Server Error"
+		},
+		"links": "",
+		"events": []
+	},{
+		"traceId": "82c761a4d29a7fe1",
+		"spanId": "82c761a4d29a7fk5",
+		"operationName": "add-items",
+		"parentSpan": "82c761a4d29a7fe1",
+		"spanKind": "server",
+		"startTime": 1615449149288000,
+		"duration": 16382,
+		"attributes": {
+			"status": "500",
+			"message": "Internal Server Error"
+		},
+		"links": "",
+		"events": []
+	},{
+		"traceId": "82c761a4d29a7fe1",
+		"spanId": "e20e4a967bfe1dcs",
+		"operationName": "delete-items",
+		"parentSpan": "82c761a4d29a7fk5",
+		"spanKind": "server",
+		"startTime": 1615449149290000,
+		"duration": 8382,
+		"attributes": {
+			"status": "503",
+			"message": "Forbidden"
+		},
+		"links": "",
+		"events": []
+	},{
+		"traceId": "82c761a4d29a7fe1",
+		"spanId": "e20e4a967bfe1asd",
+		"operationName": "change-items",
+		"parentSpan": "82c761a4d29a7fe1",
+		"spanKind": "server",
+		"startTime": 1615449149291000,
+		"duration": 15123,
+		"attributes": {
+			"status": "200",
+			"message": "Finished successfully"
+		},
+		"links": "",
+		"events": []
+	},{
+		"traceId": "82c761a4d29a7fe1",	
+		"spanId": "e20e4a967bfe1asd",
+		"operationName": "get-all",
+		"parentSpan": "e20e4a967bfe1asd",
+		"spanKind": "server",
+		"startTime": 1615449149297000,
+		"duration": 6324,
+		"attributes": {
+			"status": "200",
+			"serviceName":  "aaa",
+			"message": "Finished successfully"
+		},
+		"links": "",
+		"events": []
+	}],
+	"info": {
+		"total": 5,
+		"error": 3,
+		"warnings": 0
+	}
+}]

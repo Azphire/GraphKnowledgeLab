@@ -170,9 +170,9 @@ export default {
                                             path:
                                               "H2/JDBI/PreparedStatement/execute",
                                             name: "Database-h2-jdbc-driver",
-                                            type: "leaf",
-                                          },
-                                        ],
+                                            type: "leaf"
+                                          }
+                                        ]
                                       },
                                       {
                                         path: "selectUser",
@@ -183,13 +183,13 @@ export default {
                                             path:
                                               "H2/JDBI/PreparedStatement/execute",
                                             name: "Database-h2-jdbc-driver",
-                                            type: "leaf",
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
+                                            type: "leaf"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
                               },
                               {
                                 path: "Balancer/projectC/{name}",
@@ -208,16 +208,16 @@ export default {
                                         {
                                           path: "/",
                                           name: "Http-HttpClient",
-                                          type: "leaf",
+                                          type: "leaf"
                                         },
                                         {
                                           path:
                                             "Kafka/test-trace-topic/Producer",
                                           name: "MQ-kafka-producer",
-                                          type: "leaf",
-                                        },
-                                      ],
-                                    },
+                                          type: "leaf"
+                                        }
+                                      ]
+                                    }
                                   },
                                   {
                                     path: "/projectC/test",
@@ -232,31 +232,31 @@ export default {
                                           {
                                             path: "/",
                                             name: "Http-HttpClient",
-                                            type: "leaf",
+                                            type: "leaf"
                                           },
                                           {
                                             path:
                                               "Kafka/test-trace-topic/Producer",
                                             name: "MQ-kafka-producer",
-                                            type: "leaf",
-                                          },
-                                        ],
-                                      },
-                                    ],
-                                  },
-                                ],
-                              },
-                            ],
-                          },
-                        ],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-        ],
+                                            type: "leaf"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       leftlist: [
         {
@@ -264,146 +264,147 @@ export default {
           name: "a64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-11 22:17:59",
           duration: "64730 ms",
-          span: "20",
+          span: "20"
         },
         {
           path: "/projectC/{value}",
           name: "b64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-12 22:17:59",
           duration: "64731 ms",
-          span: "21",
+          span: "21"
         },
         {
           path: "/projectC/{value}",
           name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-13 22:17:59",
           duration: "64732 ms",
-          span: "22",
+          span: "22"
         },
         {
           path: "/projectC/{value}",
           name: "d64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-14 22:17:59",
           duration: "64733 ms",
-          span: "23",
+          span: "23"
         },
         {
           path: "/projectC/{value}",
           name: "e64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-15 22:17:59",
           duration: "64734 ms",
-          span: "24",
+          span: "24"
         },
         {
           path: "/projectC/{value}",
           name: "f64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-16 22:17:59",
           duration: "64735 ms",
-          span: "25",
+          span: "25"
         },
         {
           path: "/projectC/{value}",
           name: "g64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-17 22:17:59",
           duration: "64736 ms",
-          span: "26",
+          span: "26"
         },
         {
           path: "/projectC/{value}",
           name: "h64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-18 22:17:59",
           duration: "64737 ms",
-          span: "27",
+          span: "27"
         },
         {
           path: "/projectC/{value}",
           name: "i64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-19 22:17:59",
           duration: "64738 ms",
-          span: "28",
+          span: "28"
         },
         {
           path: "/projectC/{value}",
           name: "j64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-19 22:17:59",
           duration: "64739 ms",
-          span: "29",
+          span: "29"
         },
         {
           path: "/projectC/{value}",
           name: "a64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-11 22:17:59",
           duration: "64730 ms",
-          span: "20",
+          span: "20"
         },
         {
           path: "/projectC/{value}",
           name: "b64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-12 22:17:59",
           duration: "64731 ms",
-          span: "21",
+          span: "21"
         },
         {
           path: "/projectC/{value}",
           name: "c64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-13 22:17:59",
           duration: "64732 ms",
-          span: "22",
+          span: "22"
         },
         {
           path: "/projectC/{value}",
           name: "d64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-14 22:17:59",
           duration: "64733 ms",
-          span: "23",
+          span: "23"
         },
         {
           path: "/projectC/{value}",
           name: "e64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-15 22:17:59",
           duration: "64734 ms",
-          span: "24",
+          span: "24"
         },
         {
           path: "/projectC/{value}",
           name: "f64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-16 22:17:59",
           duration: "64735 ms",
-          span: "25",
+          span: "25"
         },
         {
           path: "/projectC/{value}",
           name: "g64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-17 22:17:59",
           duration: "64736 ms",
-          span: "26",
+          span: "26"
         },
         {
           path: "/projectC/{value}",
           name: "h64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-18 22:17:59",
           duration: "64737 ms",
-          span: "27",
+          span: "27"
         },
         {
           path: "/projectC/{value}",
           name: "i64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-19 22:17:59",
           duration: "64738 ms",
-          span: "28",
+          span: "28"
         },
         {
           path: "/projectC/{value}",
           name: "j64945c8-49c4-490c-a05d-9418e4d0a792",
           startpoint: "2021-03-19 22:17:59",
           duration: "64739 ms",
-          span: "29",
-        },
-      ],
+          span: "29"
+        }
+      ]
     };
   },
 
   mounted() {
+    this.loadData();
     this.echartsInit();
   },
   methods: {
@@ -444,7 +445,7 @@ export default {
       this.$echarts.init(document.getElementById("echart")).setOption({
         tooltip: {
           trigger: "item",
-          triggerOn: "mousemove",
+          triggerOn: "mousemove"
         },
         series: [
           {
@@ -458,7 +459,7 @@ export default {
             symbolSize: "10",
 
             itemStyle: {
-              color: "#2F96E0",
+              color: "#2F96E0"
             },
 
             top: "1%",
@@ -477,26 +478,16 @@ export default {
               height: "50,",
 
               overflow: "truncate",
-              formatter: function (params) {
+              formatter: function(params) {
                 var arr = [
                   "{a|" + params.data.path + "}",
                   "{b|        }{c|                   }",
-                  "{x|" + params.data.name + "}",
+                  "{x|" + params.data.name + "}"
                 ];
                 // console.log(params)
                 return arr.join("\n");
               },
 
-              // 这里是文本块的样式设置：
-              // position: function (params) {
-              //   var arr = [-120, -8]
-              //   if (params.data.type == "branch") {
-              //     arr = [-120, -40]
-              //     console.log(params.data.name)
-              //   };
-              //   return arr;
-
-              // },
               position: [-100, -8],
               // position: "left",
               // position: params.data.position,
@@ -514,39 +505,24 @@ export default {
                 a: {
                   color: "black",
                   fontSize: 12,
-                  lineHeight: 5,
+                  lineHeight: 5
                 },
                 b: {
                   backgroundColor: "#2F96E0",
-                  height: 3,
+                  height: 3
                 },
                 c: {
                   backgroundColor: "#D2D2D2",
-                  height: 3,
+                  height: 3
                 },
                 x: {
                   fontSize: 12,
                   fontFamily: "Microsoft YaHei",
                   color: "#D2D2D2",
-                  lineHeight: 5,
-                },
-              },
+                  lineHeight: 5
+                }
+              }
             },
-            // labelLayout: {
-            //   verticalAlign: "middle",
-            // },
-            // labelLayout: function (params) {
-            //   var arr = [-120, -8]
-            //   console.log(params)
-            //     // if (params.data.type == "branch") {
-            //     //   arr = [-120, -40]
-            //       // console.log(params.data.name)
-            //     // };
-            //     if (params.dataIndex == 1){
-            //       arr = [-120, -12]
-            //     }
-            //     return arr;
-            // },
 
             roam: true,
 
@@ -556,11 +532,11 @@ export default {
               label: {
                 width: "90",
                 height: "50,",
-                formatter: function (params) {
+                formatter: function(params) {
                   var arr = [
                     "{a|" + params.data.path + "}",
                     "{b|        }{c|                   }",
-                    "{x|" + params.data.name + "}",
+                    "{x|" + params.data.name + "}"
                   ];
                   // console.log(params)
                   return arr.join("\n");
@@ -580,30 +556,30 @@ export default {
                   a: {
                     color: "black",
                     fontSize: 12,
-                    lineHeight: 5,
+                    lineHeight: 5
                   },
                   b: {
                     backgroundColor: "#2F96E0",
-                    height: 3,
+                    height: 3
                   },
                   c: {
                     backgroundColor: "#D2D2D2",
-                    height: 3,
+                    height: 3
                   },
                   x: {
                     fontSize: 12,
                     fontFamily: "Microsoft YaHei",
                     color: "#D2D2D2",
-                    lineHeight: 5,
-                  },
+                    lineHeight: 5
+                  }
                 },
                 width: "90",
                 height: "50,",
-                formatter: function (params) {
+                formatter: function(params) {
                   var arr = [
                     "{a|" + params.data.path + "}",
                     "{b|        }{c|                   }",
-                    "{x|" + params.data.name + "}",
+                    "{x|" + params.data.name + "}"
                   ];
                   // console.log(params)
                   return arr.join("\n");
@@ -623,38 +599,42 @@ export default {
                   a: {
                     color: "black",
                     fontSize: 12,
-                    lineHeight: 5,
+                    lineHeight: 5
                   },
                   b: {
                     backgroundColor: "#2F96E0",
-                    height: 3,
+                    height: 3
                   },
                   c: {
                     backgroundColor: "#D2D2D2",
-                    height: 3,
+                    height: 3
                   },
                   x: {
                     fontSize: 12,
                     fontFamily: "Microsoft YaHei",
                     color: "#D2D2D2",
-                    lineHeight: 5,
-                  },
-                },
-              },
+                    lineHeight: 5
+                  }
+                }
+              }
             },
 
             emphasis: {
-              focus: "descendant",
+              focus: "descendant"
             },
 
             expandAndCollapse: true,
             animationDuration: 550,
-            animationDurationUpdate: 750,
-          },
-        ],
+            animationDurationUpdate: 750
+          }
+        ]
       });
     },
-  },
+    loadData() {
+      let chainData = require("../../static/Chain.json");
+      console.log(chainData);
+    }
+  }
 };
 </script>
 
